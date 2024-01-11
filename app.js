@@ -20,14 +20,14 @@ const pool = mysql.createPool(dbConfig);
 const insertSampleUsers = async () => {
     const connection = await pool.getConnection();
     const names = [
-        'anto', 'arun', 'Michael', 'sekar', 'christo', 'ajith', 'David', 'Sarah',
+        'admin', 'arun', 'Michael', 'sekar', 'christo', 'ajith', 'David', 'Sarah', , "anto",
         'madhan', 'vicky', 'vincy', 'anisha', 'abisha', 'Jennifer', 'bencia', 'jenifer',
     ];
     try {
         const sampleUsers = [];
         for (let i = 1; i <= 10000; i++) {
-            const firstName = names[Math.floor(Math.random() * names.length)];
-            sampleUsers.push([{ id: i, name: firstName, group: Math.ceil(Math.random() * 3) }]);
+            const name = names[Math.floor(Math.random() * names.length)];
+            sampleUsers.push([{ id: i, name, group: name }]);
         }
         console.log(sampleUsers.length)
         await connection.query('INSERT INTO users (id, name, group) VALUES ?', [sampleUsers]);
