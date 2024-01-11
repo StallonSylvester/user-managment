@@ -10,9 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 
 const dbConfig = {
     host: 'localhost',
-    user: 'your_mysql_user',
-    password: 'your_mysql_password',
-    database: 'your_database_name',
+    user: 'lystloc_user',
+    password: 'lystloc_password',
+    database: 'lystloc',
 };
 
 const pool = mysql.createPool(dbConfig);
